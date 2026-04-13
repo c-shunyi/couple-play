@@ -21,6 +21,22 @@ model Example {
   @@map("example")
 }
 
+/// 客户端用户模型：支持微信登录和用户名密码登录
+model User {
+  id           Int      @id @default(autoincrement())
+  openid       String?  @unique @db.VarChar(128)      // 微信 openid，微信登录用户有值
+  username     String?  @unique @db.VarChar(64)        // 用户名，用户名登录用户有值
+  passwordHash String?  @map("password_hash") @db.VarChar(191) // 用户名登录时的密码哈希
+  nickname     String   @default("") @db.VarChar(64)
+  avatar       String   @default("") @db.VarChar(512)
+  gender       Int      @default(0)                    // 0 未知, 1 男, 2 女
+  status       Int      @default(1)                    // 1 正常, 0 禁用
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  @@map("user")
+}
+
 /// 管理员用户模型：用于管理台登录与角色权限
 model AdminUser {
   id            Int      @id @default(autoincrement())

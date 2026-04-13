@@ -15,4 +15,8 @@ export const config = {
   jwtSecret: process.env.JWT_SECRET || 'dev-secret-change-me',
   /** JWT 过期时间，例如 "7d" "12h" */
   jwtExpiresIn: process.env.JWT_EXPIRES_IN || '7d',
+  /** 微信小程序 AppID */
+  wxAppId: process.env.WX_APPID || '',
+  /** 微信小程序 AppSecret */
+  wxSecret: process.env.WX_SECRET || '',
 };
