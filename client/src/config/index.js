@@ -3,7 +3,7 @@
  */
 const config = {
   // 默认开发环境后端地址
-  baseURL: 'http://localhost:3000/api',
+  baseURL: 'http://localhost:8804/api',
   // 请求默认超时时间，单位 ms
   timeout: 10000,
 };
